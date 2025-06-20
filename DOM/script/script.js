@@ -25,7 +25,9 @@ const facturenData = {
 
 const klantSelect = document.getElementById("klantSelect");
 const betaaldContainer = document.getElementById("betaaldContainer");
-const nietBetaaldContainer = document.getElementById("nietBetaaldContainer");
+const nietBetaaldContainer = document.getElementById(
+  "nietBetaaldContainer"
+);
 // ______________________________________________________________________________________
 /**
  * Zorg ervoor dat:
@@ -35,3 +37,45 @@ const nietBetaaldContainer = document.getElementById("nietBetaaldContainer");
  * 4. De facturen kijrgen een kleur op basis van betaald / niet betaald (zie css)
  * 5. Klik je op een factuur-regel dan krijg je een popup met de prijs van de factuur
  */
+
+//toevoegen van klanten aan dorpdown
+VoegKlantenToe();
+
+function VoegKlantenToe() {
+  klanten.forEach((klant) => {
+    const option = document.createElement("option");
+    option.value = klant.klantID;
+    option.innerHTML = klant.naam;
+    klantSelect.appendChild(option);
+  });
+}
+
+klantSelect.addEventListener("change", () => {
+  VoegFacturenToe();
+});
+
+function VoegFacturenToe() {
+  betaaldContainer.innerHTML = "";
+  nietBetaaldContainer.innerHTML = "";
+  for (let i = 0; i < facturenData[1].length; i++) {
+    let div = document.createElement("div");
+    let p = document.createElement("p");
+    let prijs = document.createElement("p");
+    p.innerHTML = `factuur: ${facturenData[1][i].id}`;
+    div.appendChild(p);
+    div.appendChild(prijs);
+    div.className = "factuur";
+    div.addEventListener("click", () => {
+      prijs.innerHTML = `prijs €${facturenData[1][i].bedrag}`;
+    });
+    if (facturenData[1][i].betaald) {
+      div.className = "betaald";
+      betaaldContainer.appendChild(div);
+    } else {
+      div.className = "niet-betaald";
+      nietBetaaldContainer.appendChild(div);
+    }
+  }
+
+  console.log(facturenData[1][0]);
+}
