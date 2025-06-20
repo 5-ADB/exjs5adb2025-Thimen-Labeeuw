@@ -12,9 +12,9 @@ class Factuur {
   }
 
   toString() {
-    return `Factuur ${this.factuurnummer}: €${this.bedrag.toFixed(2)} - ${
-      this.betaald ? "Betaald" : "Openstaand"
-    }`;
+    return `Factuur ${this.factuurnummer}: €${this.bedrag.toFixed(
+      2
+    )} - ${this.betaald ? "Betaald" : "Openstaand"}`;
   }
 }
 
@@ -42,10 +42,24 @@ class Klant {
   }
 
   getTotaalBedragOpenstaand() {
-    // bereken het totaal van de facturen die nog niet betaald zijn.
+    let totaal = 0;
+    this.facturen.forEach((factuur) => {
+      if (!factuur.betaald) {
+        totaal += factuur.bedrag;
+      }
+    });
+    return totaal;
+  }
+
+  printFacturen() {
+    console.log("facturen voor Karel kleintjes: ");
+    this.facturen.forEach((factuur) => {
+      console.log(factuur.toString());
+    });
   }
 }
 
 module.exports = {
   Factuur,
+  Klant,
 };
