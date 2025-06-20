@@ -38,7 +38,7 @@ const nietBetaaldContainer = document.getElementById(
  * 5. Klik je op een factuur-regel dan krijg je een popup met de prijs van de factuur
  */
 
-//toevoegen van klanten aan dorpdown
+//toevoegen van klanten aan dropdown
 VoegKlantenToe();
 
 function VoegKlantenToe() {
