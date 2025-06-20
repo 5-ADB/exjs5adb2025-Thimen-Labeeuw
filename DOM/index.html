@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Facturen per Klant</title>
+    <link rel="stylesheet" href="./stijl/stijl.css" />
+  </head>
+  <body>
+    <h1>Klantselectie</h1>
+    <label for="klantSelect">Selecteer een klant:</label>
+    <select id="klantSelect">
+      <option value="">-- Kies een klant --</option>
+    </select>
+
+    <div class="factuurlijst">
+      <h3>Betaald</h3>
+      <div id="betaaldContainer"></div>
+
+      <h3>Niet Betaald</h3>
+      <div id="nietBetaaldContainer"></div>
+    </div>
+
+    <script src="./script/script.js"></script>
+  </body>
+</html>

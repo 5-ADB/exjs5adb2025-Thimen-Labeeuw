@@ -1,0 +1,22 @@
+body {
+  font-family: Arial;
+  padding: 20px;
+}
+.factuurlijst {
+  margin-top: 20px;
+}
+.factuur {
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin: 5px 0;
+  border-radius: 5px;
+}
+.betaald {
+  background-color: #d4edda;
+}
+.niet-betaald {
+  background-color: #f8d7da;
+}
+h3 {
+  margin-top: 30px;
+}
