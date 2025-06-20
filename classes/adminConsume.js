@@ -16,6 +16,7 @@
  * output: Openstaand totaal: 250
  */
 
+//importeren van je class "Factuur" en "Klant"
 const { Factuur, Klant } = require("./Admin");
 
 //aanmaken facturen
@@ -33,5 +34,7 @@ klant1 = new Klant(
 klant1.voegFactuurToe(factuur1);
 klant1.voegFactuurToe(factuur2);
 
+//alle facturen tonen in terminal
 klant1.printFacturen();
+//som tonen van alle openstaande facturen
 console.log("Openstaand totaal:", klant1.getTotaalBedragOpenstaand());

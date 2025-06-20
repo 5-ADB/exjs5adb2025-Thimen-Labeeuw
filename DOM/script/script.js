@@ -50,26 +50,36 @@ function VoegKlantenToe() {
   });
 }
 
+//event toevoegen aan je klantenselect voor het tonen van de facturen
 klantSelect.addEventListener("change", () => {
   VoegFacturenToe();
 });
 
+//facturen tonen bij juiste sectie
 function VoegFacturenToe() {
+  //resetten van vorige facturen
   betaaldContainer.innerHTML = "";
   nietBetaaldContainer.innerHTML = "";
+  //door alle facturen gaan
   for (let i = 0; i < facturenData[1].length; i++) {
+    //elementen aanmaken zoals je div/p voor zowel de factuur als de prijs
     let div = document.createElement("div");
     let p = document.createElement("p");
     let prijs = document.createElement("p");
+    //text van je p aanpassen naar je factuurID
     p.innerHTML = `factuur: ${facturenData[klantSelect.value][i].id}`;
+    //alles toevoegen aan je div
     div.appendChild(p);
     div.appendChild(prijs);
     div.className = "factuur";
+    //event toevoegen als je op de factuur klikt dat de prijs tevoorschijn komt
     div.addEventListener("click", () => {
       prijs.innerHTML = `prijs €${
         facturenData[klantSelect.value][i].bedrag
       }`;
     });
+    //kijken of je factuur al dan wel/niet betaald is en dan een classname aan toe voegen
+    //die zorgt dat het de juiste kleur krijgt
     if (facturenData[klantSelect.value][i].betaald) {
       div.className = "betaald";
       betaaldContainer.appendChild(div);
@@ -78,6 +88,4 @@ function VoegFacturenToe() {
       nietBetaaldContainer.appendChild(div);
     }
   }
-
-  console.log(facturenData[1][0]);
 }
