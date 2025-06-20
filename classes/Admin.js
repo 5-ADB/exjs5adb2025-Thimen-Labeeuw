@@ -52,7 +52,7 @@ class Klant {
   }
 
   printFacturen() {
-    console.log("facturen voor Karel kleintjes: ");
+    console.log(`facturen voor: ${this.naam}`);
     this.facturen.forEach((factuur) => {
       console.log(factuur.toString());
     });

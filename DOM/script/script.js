@@ -61,14 +61,16 @@ function VoegFacturenToe() {
     let div = document.createElement("div");
     let p = document.createElement("p");
     let prijs = document.createElement("p");
-    p.innerHTML = `factuur: ${facturenData[1][i].id}`;
+    p.innerHTML = `factuur: ${facturenData[klantSelect.value][i].id}`;
     div.appendChild(p);
     div.appendChild(prijs);
     div.className = "factuur";
     div.addEventListener("click", () => {
-      prijs.innerHTML = `prijs €${facturenData[1][i].bedrag}`;
+      prijs.innerHTML = `prijs €${
+        facturenData[klantSelect.value][i].bedrag
+      }`;
     });
-    if (facturenData[1][i].betaald) {
+    if (facturenData[klantSelect.value][i].betaald) {
       div.className = "betaald";
       betaaldContainer.appendChild(div);
     } else {
